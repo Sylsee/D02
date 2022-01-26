@@ -6,11 +6,11 @@
 #    By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/24 14:54:10 by spoliart          #+#    #+#              #
-#    Updated: 2022/01/26 17:14:00 by spoliart         ###   ########.fr        #
+#    Updated: 2022/01/26 23:33:36 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	test
+NAME	=	fixed
 
 CC		=	clang++
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98

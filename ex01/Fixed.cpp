@@ -6,12 +6,13 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 16:35:12 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/26 18:02:03 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/26 18:02:56 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
+#include <cmath>
 
 Fixed::Fixed( void )
 {
@@ -31,6 +32,20 @@ Fixed::Fixed( Fixed const & src )
 	return ;
 }
 
+Fixed::Fixed( const int value )
+{
+	std::cout << "Int constructor called" << std::endl;
+
+	this->_value = value << this->_bits;
+}
+
+Fixed::Fixed( const float value )
+{
+	std::cout << "Float constructor called" << std::endl;
+
+	this->_value = roundf(value * (1 << this->_bits));
+}
+
 Fixed::~Fixed( void )
 {
 	std::cout << "Destructor called" << std::endl;
@@ -48,10 +63,15 @@ Fixed &	Fixed::operator=( Fixed const & rhs )
 	return *this;
 }
 
+std::ostream &	operator<<( std::ostream & o, Fixed const & src )
+{
+	o << src.toFloat();
+
+	return o;
+}
+
 int		Fixed::getRawBits( void ) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
-
 	return this->_value;
 }
 
@@ -60,4 +80,14 @@ void	Fixed::setRawBits( int const raw )
 	this->_value = raw;
 
 	return ;
+}
+
+float	Fixed::toFloat( void ) const
+{
+	return (float)(this->_value / roundf(1 << this->_bits));
+}
+
+int	Fixed::toInt( void ) const
+{
+	return this->_value >> this->_bits;
 }

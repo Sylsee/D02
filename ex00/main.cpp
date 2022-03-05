@@ -25,5 +25,13 @@ int main( void )
 	std::cout << b.getRawBits() << std::endl;
 	std::cout << c.getRawBits() << std::endl;
 
+	a.setRawBits(4);
+	b.setRawBits(4);
+	c.setRawBits(4);
+
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+
 	return 0;
 }

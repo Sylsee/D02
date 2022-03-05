@@ -14,20 +14,14 @@
 #include <iostream>
 #include <cmath>
 
-/************************* CONSTRUCTOR / DESTRUCTOR ***************************/
-
 Fixed::Fixed( void )
 {
 	this->_value = 0;
-
-	return ;
 }
 
 Fixed::Fixed( Fixed const & src )
 {
 	*this = src;
-
-	return ;
 }
 
 Fixed::Fixed( const int value )
@@ -45,8 +39,6 @@ Fixed::~Fixed( void )
 	return ;
 }
 
-/**************************** MEMBER FUNCTION *********************************/
-
 int		Fixed::getRawBits( void ) const
 {
 	return this->_value;
@@ -55,8 +47,6 @@ int		Fixed::getRawBits( void ) const
 void	Fixed::setRawBits( int const raw )
 {
 	this->_value = raw;
-
-	return ;
 }
 
 float	Fixed::toFloat( void ) const
@@ -96,8 +86,6 @@ Fixed const &	Fixed::max( Fixed const & a, Fixed const & b )
 		return a;
 	return b;
 }
-
-/********************************* OPERATOR ***********************************/
 
 Fixed &	Fixed::operator=( Fixed const & rhs )
 {
